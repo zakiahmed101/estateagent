@@ -1,3 +1,31 @@
-<p>
-  contact works!
-</p>
+<form>
+    <div class="form-group"> 
+      <label for="firstName">First Name</label>
+      <input required minlength="2" ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" id="firstName" type="text" class="form-control">
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors.required">First Name is Required</div>          
+        <div *ngIf="firstName.errors.minlength">First Name must have a minimum of {{ firstName.errors.minlength.requiredLength }} characters</div>
+      </div>
+    </div>
+
+    <div class="form-group"> 
+        <label for="email">Email</label>
+        <input required minlength="2" ngModel name="email" #email="ngModel" (change)="log(email)" id="firstName" type="text" class="form-control">
+        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+          <div *ngIf="email.errors.required">First Name is Required</div>          
+          <div *ngIf="email.errors.minlength">First Name must have a minimum of {{ email.errors.minlength.requiredLength }} characters</div>
+        </div>
+      </div>
+
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <textarea required minlength="10" maxlength="200" ngModel name="comment" #comment="ngModel" (change)="log(comment)" id="comment" cols="30" rows="10" class="form-control"></textarea>
+      <div class="alert alert-danger" *ngIf="comment.touched && !comment.valid">
+        <div *ngIf="comment.errors.required">Comment is Required</div> 
+        <div *ngIf="comment.errors.minlength">Minimum length is {{ comment.errors.minlength.requiredLength }}</div>
+        <div *ngIf="comment.errors.maxlength">Maximum length is {{ comment.errors.maxlength.requiredLength }}</div>
+      </div>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+
