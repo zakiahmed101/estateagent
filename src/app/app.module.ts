@@ -9,6 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { PropertiesComponent } from './properties/properties.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 
@@ -26,7 +27,9 @@ import { PropertiesComponent } from './properties/properties.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ 
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
