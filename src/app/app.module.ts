@@ -11,7 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { PropertiesComponent } from './properties/properties.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
